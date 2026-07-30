@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width:260px;
+    background:#1f3c88;
+    color:white;
+    padding:30px 20px;
+}
+
+.sidebar h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.sidebar p{
+    color:#dcdcdc;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:15px 0;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:white;
+    display:block;
+    padding:12px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    background:white;
+    color:#1f3c88;
+}
+
+/* Main Content */
+.main-content{
+    flex:1;
+    padding:40px;
+}
+
+.main-content h1{
+    color:#1f3c88;
+    margin-bottom:25px;
+}
+
+/* Welcome Box */
+.welcome-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.welcome-box h2{
+    margin-bottom:10px;
+    color:#333;
+}
+
+.welcome-box p{
+    color:#666;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    color:#1f3c88;
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    font-size:18px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+
+        <h2>🎓 Admin Dashboard</h2>
+        <p>Administrator Panel</p>
+
+        <ul>
+            <li><a href="admin-dashboard.html">🏠 Dashboard</a></li>
+            <li><a href="manage-courses.html">📚 Manage Courses</a></li>
+            <li><a href="manage-students.html">👨‍🎓 Manage Students</a></li>
+            <li><a href="enrollments.html">📝 Enrollments</a></li>
+            <li><a href="#" onclick="logoutAdmin()">🚪 Logout</a></li>
+        </ul>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1>Admin Dashboard</h1>
+
+        <div class="welcome-box">
+            <h2>Welcome Administrator 👋</h2>
+            <p>
+                Manage courses, students and enrollments
+                from a single dashboard.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h2 id="studentCount">0</h2>
+                <p>Total Students</p>
+            </div>
+
+            <div class="card">
+                <h2 id="courseCount">0</h2>
+                <p>Total Courses</p>
+            </div>
+
+            <div class="card">
+                <h2 id="enrollmentCount">0</h2>
+                <p>Total Enrollments</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

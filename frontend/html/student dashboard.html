@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+}
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+.sidebar{
+width:250px;
+background:#1f3c88;
+color:white;
+padding:30px;
+}
+
+.sidebar h2{
+margin-bottom:20px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar li{
+margin:15px 0;
+}
+
+.sidebar a{
+color:white;
+text-decoration:none;
+display:block;
+padding:10px;
+border-radius:8px;
+}
+
+.sidebar a:hover{
+background:white;
+color:#1f3c88;
+}
+
+.main{
+flex:1;
+padding:40px;
+}
+
+.welcome{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:25px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card h2{
+color:#1f3c88;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+}
+
+.notification{
+margin-top:25px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+
+<h2>🎓 Student Panel</h2>
+
+<ul>
+<li><a href="student-dashboard.html">🏠 Dashboard</a></li>
+<li><a href="course.html">📚 Courses</a></li>
+<li><a href="mycourses.html">📝 My Courses</a></li>
+<li><a href="#" onclick="logoutStudent()">🚪 Logout</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="welcome">
+
+<h2 id="welcomeStudent">Welcome Student</h2>
+
+<p>
+Track your learning progress and enrolled courses.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h2 id="enrolledCount">0</h2>
+<p>Enrolled Courses</p>
+</div>
+
+<div class="card">
+<h2 id="completedCount">0</h2>
+<p>Completed Courses</p>
+</div>
+
+<div class="card">
+<h2 id="progressPercent">0%</h2>
+<p>Progress</p>
+</div>
+
+</div>
+
+<div class="notification">
+
+<h2>🔔 Notifications</h2>
+
+<p>
+Welcome to the Course Management System.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="student-dashboard.js"></script>
+
+</body>
+</html>
