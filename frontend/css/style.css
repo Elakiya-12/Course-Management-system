@@ -1,0 +1,269 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f7f5f2;
+    color:#333;
+}
+
+header{
+    background:#1E3A5F;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:#d9c9a5;
+}
+
+.hero{
+    height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#ECECEC;
+}
+
+.hero h1{
+    font-size:45px;
+    color:#1E3A5F;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    margin:10px;
+    background:#6D4C41;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#556B2F;
+}
+
+.btn2{
+    background:#1E3A5F;
+}
+
+.features,
+.courses{
+    padding:60px 40px;
+    text-align:center;
+}
+
+.card-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    color:#1E3A5F;
+    margin-bottom:10px;
+}
+
+footer{
+    background:#1E3A5F;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* =========================
+   Register & Login Forms
+   ========================= */
+
+.form-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:80vh;
+    padding:40px 20px;
+}
+
+.form-card{
+    background:white;
+    width:450px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+.form-card h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#1E3A5F;
+}
+
+.form-card label{
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.form-card input,
+.form-card select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+.form-card button{
+    width:100%;
+}
+
+.remember{
+    margin-bottom:15px;
+}
+
+.bottom-link{
+    text-align:center;
+    margin-top:15px;
+}
+
+.bottom-link a{
+    color:#1E3A5F;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.bottom-link a:hover{
+    text-decoration:underline;
+}
+
+#registerMessage,
+#loginMessage{
+    text-align:center;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav ul{
+        flex-direction:column;
+        text-align:center;
+        margin-top:10px;
+    }
+
+    nav ul li{
+        margin:10px 0;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .form-card{
+        width:100%;
+    }
+}
+.form-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:70vh;
+}
+
+.form-container{
+    width:450px;
+    background:#fff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.form-container h2{
+    text-align:center;
+    color:#1f3f6d;
+    margin-bottom:25px;
+}
+
+.form-container label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.form-container input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-container button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#795548;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.form-container button:hover{
+    background:#5d4037;
+}
