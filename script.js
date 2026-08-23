@@ -2,8 +2,28 @@
 // Student Course Management System
 // ================================
 
-// JSON Data from Local Storage
-let students = JSON.parse(localStorage.getItem("students")) || [];
+// ================================
+// IMPORT MODULES
+// ================================
+
+import {
+    setCurrentUser,
+    getCurrentUser,
+    clearCurrentUser
+} from "./modules/state.js";
+
+import {
+    getStudents,
+    saveStudents
+} from "./modules/storage.js";
+
+
+// ================================
+// STUDENT DATA
+// ================================
+
+let students = getStudents();
+
 
 // ================================
 // REGISTER VALIDATION
@@ -27,7 +47,10 @@ if (registerForm) {
 
         let message = document.getElementById("registerMessage");
 
-        // Validation
+
+        // ================================
+        // VALIDATION
+        // ================================
 
         if (
             name === "" ||
@@ -37,49 +60,68 @@ if (registerForm) {
             password === "" ||
             confirmPassword === ""
         ) {
+
             message.innerHTML = "All fields are required";
             message.style.color = "red";
+
             return;
         }
+
 
         if (password !== confirmPassword) {
+
             message.innerHTML = "Passwords do not match";
             message.style.color = "red";
+
             return;
         }
 
-        // JSON Object
+
+        // ================================
+        // CREATE STUDENT OBJECT
+        // ================================
 
         let student = {
+
             name: name,
             email: email,
             phone: phone,
             studentId: studentId,
             department: department,
             password: password
+
         };
+
+
+        // ================================
+        // SAVE STUDENT
+        // ================================
 
         students.push(student);
 
-        localStorage.setItem(
-            "students",
-            JSON.stringify(students)
-        );
+        saveStudents(students);
 
-        message.innerHTML =
-            "Registration Successful";
 
+        // ================================
+        // SUCCESS MESSAGE
+        // ================================
+
+        message.innerHTML = "Registration Successful";
         message.style.color = "green";
 
         registerForm.reset();
 
+
         setTimeout(() => {
+
             window.location.href = "login.html";
+
         }, 1500);
 
     });
 
 }
+
 
 // ================================
 // LOGIN VALIDATION
@@ -93,6 +135,7 @@ if (loginForm) {
 
         e.preventDefault();
 
+
         let email =
             document.getElementById("loginEmail").value.trim();
 
@@ -102,42 +145,67 @@ if (loginForm) {
         let message =
             document.getElementById("loginMessage");
 
-        let students =
-            JSON.parse(localStorage.getItem("students")) || [];
+
+        // Get students from storage
+
+        let students = getStudents();
+
+
+        // Find matching student
 
         let user = students.find(
+
             student =>
                 student.email === email &&
                 student.password === password
+
         );
+
+
+        // ================================
+        // LOGIN SUCCESS
+        // ================================
 
         if (user) {
 
-            localStorage.setItem(
-                "loggedInUser",
-                JSON.stringify(user)
-            );
+            setCurrentUser(user);
+
 
             message.innerHTML =
                 "Login Successful";
 
-            message.style.color = "green";
+            message.style.color =
+                "green";
+
 
             setTimeout(() => {
-                window.location.href = "index.html";
+
+                window.location.href =
+                    "index.html";
+
             }, 1000);
 
-        } else {
+        }
+
+
+        // ================================
+        // LOGIN FAILED
+        // ================================
+
+        else {
 
             message.innerHTML =
                 "Invalid Email or Password";
 
-            message.style.color = "red";
+            message.style.color =
+                "red";
+
         }
 
     });
 
 }
+
 
 // ================================
 // DYNAMIC NAVIGATION
@@ -148,13 +216,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks =
         document.querySelectorAll("nav a");
 
+
     navLinks.forEach(link => {
 
         link.addEventListener("click", function () {
 
             localStorage.setItem(
+
                 "lastVisitedPage",
+
                 this.getAttribute("href")
+
             );
 
         });
@@ -163,12 +235,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
 // ================================
-// DISPLAY LOGGED USER
+// DISPLAY LOGGED-IN USER
 // ================================
 
-let currentUser =
-    JSON.parse(localStorage.getItem("loggedInUser"));
+let currentUser = getCurrentUser();
+
 
 if (currentUser) {
 
@@ -178,14 +251,16 @@ if (currentUser) {
 
 }
 
+
 // ================================
 // LOGOUT FUNCTION
 // ================================
 
 function logout() {
 
-    localStorage.removeItem("loggedInUser");
+    clearCurrentUser();
 
-    window.location.href = "login.html";
+    window.location.href =
+        "login.html";
 
 }
